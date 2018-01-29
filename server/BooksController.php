@@ -1,6 +1,6 @@
 <?php
 
-require_once("DBConnection");
+require_once("DBConnection.php");
 
 class BooksController
 {
@@ -8,7 +8,7 @@ class BooksController
 	{
 		$sqlCommand = "SELECT * FROM books WHERE id = " . $params['id']  . ";";
 		$db = new DBConnection();		
-		$result = $db->SelectQuery($sql);		
+		$result = $db->SelectQuery($sqlCommand);		
 		return $result;
 	}
 	
@@ -16,7 +16,7 @@ class BooksController
 	{
 		$sqlCommand = "SELECT * FROM books;";
 		$db = new DBConnection();		
-		$result = $db->SelectQuery($sql);		
+		$result = $db->SelectQuery($sqlCommand);		
 		return $result;
 	}
 	
@@ -24,7 +24,7 @@ class BooksController
 	{
 		$sqlCommand = "INSERT INTO books(title, author, isbn) VALUES ('" .  $request['title'] ."', '" . $request['author'] . "', '" . $request['isbn'] ."');";
 		$db = new DBConnection();		
-		$result = $db->ExecQuery($sql);		
+		$result = $db->ExecQuery($sqlCommand);		
 		return $result;
 	}
 	
@@ -32,7 +32,7 @@ class BooksController
 	{
 		$sqlCommand = "UPDATE books SET title = '" .  $request['title'] ."', author = '" . $request['author'] . "', isbn = '" . $request['isbn'] ." WHERE " . $params['id'] . ";";
 		$db = new DBConnection();		
-		$result = $db->ExecQuery($sql);		
+		$result = $db->ExecQuery($sqlCommand);		
 		return $result;
 	}
 	
@@ -40,7 +40,7 @@ class BooksController
 	{
 		$sqlCommand = "DELETE FROM books WHERE id = " . $params['id']  . ";";
 		$db = new DBConnection();		
-		$result = $db->ExecQuery($sql);		
+		$result = $db->ExecQuery($sqlCommand);		
 		return $result;
 	}
 }
