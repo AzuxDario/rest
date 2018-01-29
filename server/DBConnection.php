@@ -7,9 +7,9 @@ class DBConnection
 	private const DbPassword = "";
 	private const DbName = "shop";
 	
-	public function selectQuery($sql)
+	public function SelectQuery($sql)
 	{
-		$connection = getConnetion();
+		$connection = GetConnection();
 		$statment = $connection->prepare($sql);
 		$statment->execute();
 		$statment->setFetchMode(PDO::FETCH_ASSOC);
@@ -21,15 +21,15 @@ class DBConnection
 		}
 	}
 	
-	public function execQuery($sql)
+	public function ExecQuery($sql)
 	{
-		$connection = getConnetion();
+		$connection = GetConnection();
 		$connection->exec($sql);
 
         return $connection->lastInsertId();
 	}
 	
-	private function getConnection()
+	private function GetConnection()
 	{
 		try
 		{
