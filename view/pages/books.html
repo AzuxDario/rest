@@ -5,11 +5,16 @@
     <th>Nazwa</th>
     <th>Autor</th>
     <th>ISBN</th>
+    <th>Edycja</th>
+    <th>Usuwanie</th>
   </tr>
   <tr ng-repeat="x in books.data">
     <td>{{ x.title }}</td>
     <td>{{ x.author }}</td>
-    <td><a ng-click="editBook(x.id) class="btn btn-small btn-primary">Edycja</a></td>
-    <td><a ng-click="editBook(x.id) class="btn btn-small btn-primary">Usuń</a></td>
+    <td>{{ x.isbn }}</td>
+    <td><a ng-click="editBook(x.id)" class="btn btn-small btn-primary">Edycja</a></td>
+    <td><a ng-click="deleteBook(x.id)" class="btn btn-small btn-danger">Usuń</a></td>
   </tr>
 </table>
+
+<a ng-click="addBook()" class ="btn btn-small btn-success">Dodaj książkę</a>
