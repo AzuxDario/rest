@@ -20,11 +20,3 @@ app.config(function($routeProvider) {
 	
 	.otherwise({redirectTo: '/'});
 });
-
-app.controller('HomeController', function($scope){
-	$scope.message = 'Hello HomeController';
-});
-
-app.controller('BooksController', function($scope){
-	$scope.message = 'Hello BooksController';
-});

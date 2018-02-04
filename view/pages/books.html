@@ -1,3 +1,14 @@
-<h1>Books</h1>
+<h1>Książki</h1>
 
-<h3>{{message}}</h3>
+<table>
+<tr>
+    <th>Nazwa</th>
+    <th>Autor</th>
+    <th>ISBN</th>
+  </tr>
+  <tr ng-repeat="x in books.data">
+    <td>{{ x.title }}</td>
+    <td>{{ x.author }}</td>
+    <td>{{ x.isbn }}</td>
+  </tr>
+</table>
