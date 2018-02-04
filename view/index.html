@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html ng-app="bookStore">
   <head>
+	<meta charset="UTF-8">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
   </head>
   <body>
-	<a href="#/">Home</a>
-    <a href="#/books">Books</a>
-	<a href="#/books/3">Book 3</a>
+	<nav>
+		<a href="#/">Home</a>
+		<a href="#/books">Książki</a>
+		<a href="#/addBook">Dodaj książkę</a>
+		<a href="#/addBook">Aktualizuj książkę</a>
+		<a href="#/addBook">Usuń książkę</a>
+		<a href="#/books/3">Book 3</a>
+	</nav>
   
     <div ng-view></div>
 	
     <script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="services/bookService.js"></script>
     <script type="text/javascript" src="controllers/homeController.js"></script>
     <script type="text/javascript" src="controllers/booksController.js"></script>
+    
   </body>
 </html>

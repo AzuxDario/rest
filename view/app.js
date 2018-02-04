@@ -1,22 +1,25 @@
-var app = angular.module('bookStore', ['ngRoute']);
+var app = angular.module('bookStore', ['ngRoute', 'ngResource']);
 
 app.config(function($routeProvider) {
-	$routeProvider
-	
-	.when('/', {
+	$routeProvider.when('/', {
 		templateUrl : 'pages/home.html',
 		controller : 'HomeController'
-	})
+	});
 	
-	.when('/books/', {
+	$routeProvider.when('/books/', {
 		templateUrl : 'pages/books.html',
-		controller : 'BooksController'
-	})
+		controller : 'BooksList'
+	});
 	
-	.when('/books/:bookId', {
+	$routeProvider.when('/books/:bookId/', {
 		templateUrl : 'pages/book.html',
 		controller : 'BooksController'
-	})
+	});
 	
-	.otherwise({redirectTo: '/'});
+	$routeProvider.when('/addBook/', {
+		templateUrl : 'pages/addBook.html',
+		controller : 'BooksController'
+	});
+	
+	$routeProvider.otherwise({redirectTo: '/'});
 });
