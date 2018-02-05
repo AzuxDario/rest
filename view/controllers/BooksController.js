@@ -6,7 +6,7 @@ app.controller('BooksController', ['$scope', 'BooksFactory', 'BookFactory', '$lo
 
     $scope.deleteBook = function (bookId) {
       BookFactory.delete({ id: bookId });
-      $scope.books = BookFactory.query();
+      $scope.books = BooksFactory.query();
     };
 
     $scope.addBook = function () {

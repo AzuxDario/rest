@@ -31,7 +31,7 @@ class BooksController
 	
 	public function UpdateBook($params, $request)
 	{
-		$sqlCommand = "UPDATE books SET title = '" .  $request['title'] ."', author = '" . $request['author'] . "', isbn = '" . $request['isbn'] ." WHERE " . $params['id'] . ";";
+		$sqlCommand = "UPDATE books SET title = '" .  $request['title'] ."', author = '" . $request['author'] . "', isbn = '" . $request['isbn'] ."' WHERE id= " . $params['id'] . ";";
 		$db = new DBConnection();		
 		$result = $db->ExecQuery($sqlCommand);		
 		return $result;
