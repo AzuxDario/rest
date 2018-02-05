@@ -8,17 +8,17 @@ app.config(function($routeProvider) {
 	
 	$routeProvider.when('/books/', {
 		templateUrl : 'pages/books.html',
-		controller : 'BooksList'
-	});
-	
-	$routeProvider.when('/books/:bookId/', {
-		templateUrl : 'pages/book.html',
 		controller : 'BooksController'
 	});
 	
 	$routeProvider.when('/addBook/', {
 		templateUrl : 'pages/addBook.html',
-		controller : 'BooksController'
+		controller : 'AddBookController'
+	});
+	
+	$routeProvider.when('/editBook/:id', {
+		templateUrl : 'pages/editBook.html',
+		controller : 'EditBookController'
 	});
 	
 	$routeProvider.otherwise({redirectTo: '/'});

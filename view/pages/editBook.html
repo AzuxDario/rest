@@ -1,11 +1,12 @@
-<h1>Dodaj książkę</h1>
+<h1>Edytuj książkę</h1>
 
 <form>
 Tytuł:<br>
-<input type="text" ng-model="title"><br>
+<input type="text" ng-model="response.data[0].title"><br>
 Autor:<br>
-<input type="text" ng-model="author"><br>
+<input type="text" ng-model="response.data[0].author"><br>
 ISBN:<br>
-<input type="text" ng-model="isbn"><br>
-<button ng-click="add()">Dodaj</button>
+<input type="text" ng-model="response.data[0].isbn"><br>
+<a ng-click="cancel()" class="btn btn-small btn-danger">Anuluj</a>
+<a ng-click="editBook()" class="btn btn-small btn-primary">Zmień</a>
 </form>

@@ -9,8 +9,8 @@ app.factory('BooksFactory', function($resource) {
 
 app.factory('BookFactory', function($resource) {
 	return $resource(baseUrl + "books/:id", {}, {
-		query: {method: 'GET'},
+		show: {method: 'GET'},
 		update: {method: 'PUT', params: {id: '@id'}},
-		delete: {method: 'POST', params: {id: '@id'}}
+		delete: {method: 'DELETE', params: {id: '@id'}}
 	});
 });

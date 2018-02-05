@@ -2,10 +2,10 @@
 
 <form>
 Tytuł:<br>
-<input type="text" ng-model="title"><br>
+<input type="text" ng-model="book.title"><br>
 Autor:<br>
-<input type="text" ng-model="author"><br>
+<input type="text" ng-model="book.author"><br>
 ISBN:<br>
-<input type="text" ng-model="isbn"><br>
-<button ng-click="add()">Dodaj</button>
+<input type="text" ng-model="book.isbn"><br>
+ <a ng-click="addBook()" class="btn btn-small btn-primary">Dodaj</a>
 </form>

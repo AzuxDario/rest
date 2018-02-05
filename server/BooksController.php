@@ -25,7 +25,8 @@ class BooksController
 		$sqlCommand = "INSERT INTO books(title, author, isbn) VALUES ('" .  $request['title'] ."', '" . $request['author'] . "', '" . $request['isbn'] ."');";
 		$db = new DBConnection();		
 		$result = $db->ExecQuery($sqlCommand);		
-		return $result;
+		//return $result;
+		return $request;
 	}
 	
 	public function UpdateBook($params, $request)
