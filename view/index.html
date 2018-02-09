@@ -5,13 +5,21 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-	<nav>
-		<a href="#/">Home</a>
-		<a href="#/books">Książki</a>
-		<a href="#/addBook">Dodaj książkę</a>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand">Księgarnia</div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><a href="#/">Home</a></li>
+				<li><a href="#/books">Książki</a></li>
+				<li><a href="#/addBook">Dodaj książkę</a></li>
+			</ul>
+		</div>
 	</nav>
   
     <div ng-view></div>
