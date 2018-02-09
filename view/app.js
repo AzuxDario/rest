@@ -6,12 +6,12 @@ app.config(function($routeProvider) {
 		controller : 'HomeController'
 	});
 	
-	$routeProvider.when('/books/', {
+	$routeProvider.when('/books', {
 		templateUrl : 'pages/books.html',
 		controller : 'BooksController'
 	});
 	
-	$routeProvider.when('/addBook/', {
+	$routeProvider.when('/addBook', {
 		templateUrl : 'pages/addBook.html',
 		controller : 'AddBookController'
 	});

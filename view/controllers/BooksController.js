@@ -13,7 +13,7 @@ app.controller('BooksController', ['$scope', 'BooksFactory', 'BookFactory', '$lo
     };
 
     $scope.addBook = function () {
-		$location.path('/addBook/');
+		$location.path('/addBook');
 	};
 	
 	$scope.books = BooksFactory.query();

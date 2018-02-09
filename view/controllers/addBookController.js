@@ -4,7 +4,7 @@ app.controller('AddBookController', ['$scope', 'BooksFactory', '$location' ,func
 		var response = BooksFactory.create($scope.book);
 		response.$promise.then(function(name)
 		{
-			$location.path('/books/');
+			$location.path('/books');
 		});
 	}
 }]);

@@ -4,12 +4,12 @@ app.controller('EditBookController', ['$scope', '$routeParams', 'BookFactory', '
 		var response = BookFactory.update($scope.response.data[0]);
 		response.$promise.then(function(name)
 		{
-			$location.path('/books/');
+			$location.path('/books');
 		});
     };
 
     $scope.cancel = function () {
-		$location.path('/books/');
+		$location.path('/books');
 	};
 	
 	$scope.response = BookFactory.show({id: $routeParams.id});
