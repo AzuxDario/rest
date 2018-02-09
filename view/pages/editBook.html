@@ -1,6 +1,6 @@
-<h1>Edytuj książkę</h1>
+<h1 class="col-md-6 offset-md-3">Edytuj książkę</h1>
 
-<form>
+<form class="col-md-6 offset-md-3">
 <div class="form-group">
 		<label for="bookTitle">Tytuł książki</label>
 		<input type="text" class="form-control" id="bookTitle" placeholder="Tytuł książki" ng-model="response.data[0].title">
@@ -11,7 +11,7 @@
 	</div>
 	<div class="form-group">
 		<label for="bookIsbn">ISBN</label>
-		<input type="text" class="form-control" id="bookIsbn" placeholder="ISBN" ng-model="response.data[0].isbn">
+		<input type="text" class="form-control" id="bookIsbn" placeholder="ISBN" maxlength="13" ng-model="response.data[0].isbn">
 	</div>
 <a ng-click="cancel()" class="btn btn-small btn-danger">Anuluj</a>
 <a ng-click="editBook()" class="btn btn-small btn-primary">Zmień</a>
