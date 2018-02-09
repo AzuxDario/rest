@@ -21,5 +21,10 @@ app.config(function($routeProvider) {
 		controller : 'EditBookController'
 	});
 	
+	$routeProvider.when('/about', {
+		templateUrl : 'pages/about.html',
+		controller : 'AboutController'
+	});
+	
 	$routeProvider.otherwise({redirectTo: '/'});
 });
