@@ -8,7 +8,7 @@ app.controller('BooksController', ['$scope', 'BooksFactory', 'BookFactory', '$lo
 		var response = BookFactory.delete({ id: bookId });
 		response.$promise.then(function(name)
 		{
-			scope.books = BooksFactory.query();
+			$scope.books = BooksFactory.query();		
 		});
     };
 
