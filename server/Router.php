@@ -1,10 +1,10 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-header("Access-Control-Allow-Headers: origin, x-requested-with, content-type");
 
 require_once('BooksController.php');
 require_once('AltoRouter.php');
+
 $router = new AltoRouter();
 $router->setBasePath('/rest/server');
 $router->map('GET','/books', 'BooksController::GetBooks');
@@ -15,10 +15,18 @@ $router->map('DELETE','/books/[i:id]', 'BooksController::DeleteBook');
 // match current request
 $match = $router->match();
 // call closure or throw 404 status
+
 if( $match && is_callable( $match['target'] ) )
 {
-	$result = call_user_func_array( $match['target'], array($match['params'], $_REQUEST) );
-	
+	if(($_SERVER['REQUEST_METHOD'] === 'POST' or $_SERVER['REQUEST_METHOD'] === 'PUT'))
+	{
+		$requestData = json_decode(file_get_contents("php://input"), true);
+		$result = call_user_func_array( $match['target'], array($match['params'], $requestData) );
+	}
+	else
+	{
+		$result = call_user_func_array( $match['target'], array($match['params']) );
+	}
 	$response = array('status' => array( 'code' => 200, 'message' => 'OK'), 'data' => $result);
 	
 	echo json_encode($response);
