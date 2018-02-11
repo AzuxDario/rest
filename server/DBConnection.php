@@ -7,10 +7,36 @@ class DBConnection
 	const DbPassword = '';
 	const DbName = 'shop';
 	
-	public function SelectQuery($sql)
+	private $connection = NULL;
+	
+	function __construct()
 	{
-		$connection = self::GetConnection();
-		$statment = $connection->prepare($sql);
+        try
+		{
+			 $this->connection = new PDO("mysql:host=" . SELF::DbServer . "; dbname=" .SELF::DbName, SELF::DbUser, SELF::DbPassword);
+			 $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		}
+		catch(PDOException $e)
+		{
+			echo $e->getMessage();
+		}
+    }
+	
+	public function BindParameter($name, $value)
+	{
+		$this->connection->bindParam($name, $value);
+	}
+	
+	public function SelectQueryParams($sql, $params)
+	{
+		$statment = $this->connection->prepare($sql);
+		
+		for($x = 0; $x < count($params); $x++)
+		{
+			$index = array_keys($params)[$x];
+			$statment->bindParam($index, $params[$index]);
+		}
+		
 		$statment->execute();
 		$statment->setFetchMode(PDO::FETCH_ASSOC);
 		
@@ -23,26 +49,34 @@ class DBConnection
 		return $result;
 	}
 	
-	public function ExecQuery($sql)
+	public function SelectQuery($sql)
 	{
-		$connection = self::GetConnection();
-		$connection->exec($sql);
-
-        return $connection->lastInsertId();
+		$statment = $this->connection->prepare($sql);
+		
+		$statment->execute();
+		$statment->setFetchMode(PDO::FETCH_ASSOC);
+		
+		$result = array();
+		while ($row = $statment->fetch())
+		{
+			array_push($result, $row);
+		}
+		
+		return $result;
 	}
 	
-	private function GetConnection()
+	public function ExecQuery($sql, $params)
 	{
-		try
+		$statment = $this->connection->prepare($sql);
+		
+		for($x = 0; $x < count($params); $x++)
 		{
-			$connection = new PDO("mysql:host=" . SELF::DbServer . "; dbname=" .SELF::DbName, SELF::DbUser, SELF::DbPassword);
-			$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		}
-		catch(PDOException $e)
-		{
-			echo $e->getMessage();
-		}
-		return $connection;
+			$index = array_keys($params)[$x];
+			$statment->bindParam($index, $params[$index]);
+		}		
+		$statment->execute();
+
+        return $this->connection->lastInsertId();
 	}
 	
 }
