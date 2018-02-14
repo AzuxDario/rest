@@ -21,12 +21,7 @@ class DBConnection
 			echo $e->getMessage();
 		}
     }
-	
-	public function BindParameter($name, $value)
-	{
-		$this->connection->bindParam($name, $value);
-	}
-	
+
 	public function SelectQueryParams($sql, $params)
 	{
 		$statment = $this->connection->prepare($sql);
